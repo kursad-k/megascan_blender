@@ -2,7 +2,7 @@ bl_info = {
     "name": "Megascans Plugin",
     "description": "Connects Blender to Quixel Bridge for one-click imports with shader setup and geometry",
     "author": "Quixel",
-    "version": (3, 5, 2),
+    "version": (3, 5, 3),
     "blender": (3, 5, 0),
     "location": "File > Import",
    "warning": "", # used for warning icon and text in addons panel
