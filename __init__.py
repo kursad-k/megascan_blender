@@ -323,6 +323,8 @@ class MS_Init_ImportProcess():
         if "displacement" in self.textureTypes and not self.isHighPoly:
             self.CreateDisplacementSetup(True)
 
+        
+
     def CreateMaterial(self):
         self.mat = (bpy.data.materials.get( self.materialName ) or bpy.data.materials.new( self.materialName ))
         self.mat.use_nodes = True
@@ -333,6 +335,9 @@ class MS_Init_ImportProcess():
         self.mat.node_tree.nodes[self.parentName].distribution = 'MULTI_GGX'
         self.mat.node_tree.nodes[self.parentName].inputs[4].default_value = 1 if self.isMetal else 0 # Metallic value
         self.mat.node_tree.nodes[self.parentName].inputs[14].default_value = self.IOR
+        
+        #clearcoat
+        self.mat.node_tree.nodes[self.parentName].inputs[14].default_value = 0
         
         self.mappingNode = None
 
@@ -444,7 +449,12 @@ class MS_Init_ImportProcess():
             pass        
 
     def ConnectNodeToMaterial(self, materialInputIndex, textureNode):
-        self.mat.node_tree.links.new(self.nodes.get(self.parentName).inputs[materialInputIndex], textureNode.outputs[0])
+        
+        index=0
+        if textureNode.type=='NORMAL_MAP':
+            index=2
+
+        self.mat.node_tree.links.new(self.nodes.get(self.parentName).inputs[materialInputIndex+index], textureNode.outputs[0])
 
     def CreateGenericNode(self, nodeName, PosX, PosY):
         genericNode = self.nodes.new(nodeName)
