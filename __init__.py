@@ -1,3 +1,18 @@
+bl_info = {
+    "name": "Megascans Plugin",
+    "description": "Connects Blender to Quixel Bridge for one-click imports with shader setup and geometry",
+    "author": "Quixel",
+    "version": (3, 5, 2),
+    "blender": (3, 5, 0),
+    "location": "File > Import",
+   "warning": "", # used for warning icon and text in addons panel
+    "wiki_url": "https://docs.quixel.org/bridge/livelinks/blender/info_quickstart.html",
+    "tracker_url": "https://docs.quixel.org/bridge/livelinks/blender/info_quickstart#release_notes",
+    "support": "COMMUNITY",
+    "category": "Import-Export",
+    "notes": "Fixes and additions by kursad (qoorshod)",
+    }
+
 # ##### QUIXEL AB - MEGASCANS PLugin FOR BLENDER #####
 #
 # The Megascans Plugin  plugin for Blender is an add-on that lets
@@ -20,20 +35,6 @@ globals()['Megascans_DataSet'] = None
 globals()['MG_Material'] = []
 globals()['MG_AlembicPath'] = []
 globals()['MG_ImportComplete'] = False
-
-bl_info = {
-    "name": "Megascans Plugin",
-    "description": "Connects Blender to Quixel Bridge for one-click imports with shader setup and geometry",
-    "author": "Quixel",
-    "version": (3, 5, 2),
-    "blender": (2, 80, 0),
-    "location": "File > Import",
-    "warning": "", # used for warning icon and text in addons panel
-    "wiki_url": "https://docs.quixel.org/bridge/livelinks/blender/info_quickstart.html",
-    "tracker_url": "https://docs.quixel.org/bridge/livelinks/blender/info_quickstart#release_notes",
-    "support": "COMMUNITY",
-    "category": "Import-Export"
-}
 
 
 # MS_Init_ImportProcess is the main asset import class.
